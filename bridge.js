@@ -38,7 +38,19 @@ class MCPBridge {
     const mcpPath = path.join(this.userCodePath, this.mcpEntryPoint);
     
     if (!fs.existsSync(mcpPath)) {
-      throw new Error(`MCP entry point not found: ${mcpPath}`);
+      // Enhanced debugging: list what files actually exist
+      console.error(`MCP entry point not found: ${mcpPath}`);
+      console.error(`User code path: ${this.userCodePath}`);
+      console.error(`Entry point: ${this.mcpEntryPoint}`);
+      
+      try {
+        const files = fs.readdirSync(this.userCodePath);
+        console.error(`Files in ${this.userCodePath}:`, files);
+      } catch (err) {
+        console.error(`Could not read directory ${this.userCodePath}:`, err.message);
+      }
+      
+      throw new Error(`MCP entry point not found: ${mcpPath}. Check the files listed above.`);
     }
 
     console.log(`Starting MCP process: ${mcpPath}`);
