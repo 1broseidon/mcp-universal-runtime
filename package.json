@@ -1,0 +1,21 @@
+{
+  "name": "mcp-universal-runtime",
+  "version": "1.0.0",
+  "description": "Universal runtime for deploying any MCP server as HTTP service",
+  "type": "module",
+  "main": "bridge.js",
+  "scripts": {
+    "start": "node bridge.js",
+    "health": "curl -f http://localhost:8080/health || exit 1"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "zod": "^3.22.0"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": ["mcp", "model-context-protocol", "runtime", "bridge"],
+  "author": "MCP Platform",
+  "license": "MIT"
+}
