@@ -14,7 +14,7 @@ COPY package.json .
 RUN npm install
 
 # Copy runtime files
-COPY bridge.js .
+COPY bridge-compliant.js ./bridge.js
 COPY health.js .
 
 # Create user code directory
