@@ -249,8 +249,8 @@ class MCPBridge {
       }
     });
 
-    server.listen(this.port, '127.0.0.1', () => {
-      console.log(`MCP Universal Runtime listening on localhost:${this.port}`);
+    server.listen(this.port, '0.0.0.0', () => {
+      console.log(`MCP Universal Runtime listening on 0.0.0.0:${this.port}`);
     });
   }
 
